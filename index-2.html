@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iowa Superfund Research Program</title>
+  <meta name="description" content="ISRP DMAC page" />
+  <style>
+    /* Base + variables */
+    :root {
+      --ui-gold: #FFCD00; /* University of Iowa Gold */
+      --ui-black: #000000; /* University of Iowa Black */
+      --ui-dark: #111111;
+      --ui-gray-100: #f6f6f6;
+      --ui-gray-300: #e0e0e0;
+      --sidebar-w: 16rem;
+      --container-max: 64rem; /* ~1024px */
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+                   Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+                   "Segoe UI Emoji";
+      color: var(--ui-dark);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    /* Top brand bar */
+    .brandbar {
+      background: var(--ui-black);
+      color: var(--ui-gold);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brandbar .brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    header.hero {
+      background: var(--ui-gold);
+      color: var(--ui-black);
+      padding: 2rem 1rem;
+      border-bottom: 4px solid var(--ui-black);
+    }
+
+    /* Outer content wrapper */
+    .page {
+      /* stacked flow: brandbar -> hero -> grid */
+    }
+
+    /* Grid layout for sidebar + content (desktop) */
+    .layout {
+      display: block;
+      padding: 1rem;
+    }
+
+    @media (min-width: 48rem) { /* 768px */
+      .layout {
+        display: grid;
+        grid-template-columns: var(--sidebar-w) 1fr;
+        gap: 1.5rem;
+        max-width: calc(var(--container-max) + var(--sidebar-w) + 1.5rem);
+        margin: 0 auto;
+        align-items: start;
+      }
+    }
+
+    /* Sidebar */
+    .sidenav {
+      border-right: 4px solid var(--ui-gold);
+      background: #fff;
+      padding: 1rem;
+      position: sticky;
+      top: 0; /* sticks under browser UI; no overlap because hero is above in normal flow */
+      max-height: 100dvh;
+      overflow: auto;
+    }
+    /* On small screens, sidebar becomes a block above content */
+    @media (max-width: 47.99rem) {
+      .sidenav {
+        border-right: 0;
+        border-bottom: 4px solid var(--ui-gold);
+      }
+    }
+
+    .nav-toggle { display: none; }
+    .nav-list { list-style: none; padding: 0; margin: 0; }
+    .nav-list li { margin: .25rem 0; }
+    .nav-list a {
+      display: block;
+      padding: .5rem .25rem;
+      color: var(--ui-black);
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .nav-list a:hover, .nav-list a:focus {
+      background: var(--ui-gray-100);
+      outline: 2px solid transparent;
+    }
+    .nav-list a.active {
+      font-weight: 600;
+      border-left: 4px solid var(--ui-gold);
+      padding-left: .5rem;
+    }
+
+    /* Content column */
+    main {
+      max-width: var(--container-max);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 0 3rem;
+      font-size: 1rem; /* Avoid huge default font that causes overflow on zoom */
+    }
+
+    h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+    .subtitle { margin: 0; font-size: 1rem; opacity: 0.9; }
+
+    @media (min-width: 45rem) {
+      h1 { font-size: 2.25rem; }
+      .subtitle { font-size: 1.05rem; }
+    }
+
+    a { color: #3366CC; text-decoration: underline; }
+
+    .section {
+      background: var(--ui-gray-100);
+      border: 1px solid var(--ui-gray-300);
+      border-left: 6px solid var(--ui-black);
+      border-radius: 6px;
+      padding: 1rem 1rem 0.75rem;
+      margin: 0 0 1rem;
+    }
+
+    .section h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+      color: var(--ui-black);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .items { list-style: none; padding: 0 0 0 0.1rem; margin: 0; }
+    .items li {
+      padding: 0.35rem 0;
+      border-top: 1px dashed var(--ui-gray-300); /* fixed invalid value */
+    }
+    .items li:first-child { border-top: 0; }
+
+    code, .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background: #fff8cc;
+      border: 1px solid #f0e1a0;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .footer-note {
+      font-size: 0.9rem; color: #444; margin-top: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="brandbar">
+    <div class="brand">University of Iowa</div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <h1><a href="https://iowasuperfund.uiowa.edu/" target="_blank" rel="noopener">ISRP</a>:
+        <a href="https://iowasuperfund.uiowa.edu/program-and-research-support-cores/data-management-and-analysis-core"
+           target="_blank" rel="noopener">Data Management and Analysis Core</a></h1>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="layout">
+      <!-- Sidebar -->
+      <nav class="sidenav left" aria-label="Primary">
+        <ul class="nav-list" id="left-menu">
+          <li><a href="#DataHarmonizer" class="active">DataHarmonizer</a></li>
+          <li><a href="#priority-plan">Priority Plan</a></li>
+          <li><a href="#data-management">Data Management</a></li>
+          <li><a href="#data-analysis">Data Analysis</a></li>
+          <li><a href="#data-sharing">Data Sharing</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main content -->
+      <main aria-labelledby="DH-ISRP">
+        <h2 id="DataHarmonizer">DH-ISRP: ISRP templates for
+          <a href="https://github.com/ISRP-DMAC/DataHarmonizer" target="_blank" rel="noopener">DataHarmonizer</a>
+        </h2>
+
+        <section class="section" aria-label="LATEST VERSION">
+          <h2 id="latest-version">LATEST VERSION</h2>
+          <ul class="items">
+            <li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank" rel="noopener">DH-ISRP</a></li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="PREVIOUS VERSION">
+          <h2 id="Previous-version">PREVIOUS VERSION</h2>
+          <ul class="items">
+            <li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank" rel="noopener">0.2.0</a></li>
+            <li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank" rel="noopener">0.1.0</a></li>
+          </ul>
+        </section>
+
+        <h2>Lifecycle of <a href="https://iowasuperfund.uiowa.edu/" target="_blank" rel="noopener">ISRP</a> Studies</h2>
+
+        <section id="priority-plan" class="section" aria-label="Priority Plan">
+          <h2>PRIORITY PLAN</h2>
+          <ul class="items">
+            <li>🧰 <a href="https://dmptool.org/" target="_blank" rel="noopener">DMP Tool</a>: Sign up with UI SSO → Use <span class="kbd">ISRP Priority Plan</span></li>
+            <li>👥 Co-authors: David Purdy &amp; DMAC members</li>
+            <li>🆔 Register plan → Obtain DMP ID</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="Data Management">
+          <h2 id="data-management">DATA MANAGEMENT</h2>
+          <ul class="items">
+            <li>🗂 Download <a href="ISRP_DataHarmonizer.zip">DH-ISRP.zip</a>:
+              Unzip DataHarmonizer-ISRP.zip → Click <code>index.html</code></li>
+            <li>👤 Contact: Marina Zhang, Andres Martinez</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="Data Analysis">
+          <h2 id="data-analysis">DATA ANALYSIS</h2>
+          <ul class="items">
+            <li>👤 Contact: Kai Wang</li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="Publication and Sharing">
+          <h2 id="data-sharing">PUBLICATION &amp; SHARING</h2>
+          <ul class="items">
+            <li>📝 Publication</li>
+            <li>
+              📦 Deposit dataset (Marina Zhang) and code (Andres Martinez)
+              <ul>
+                <li><a href="Data_Deposit_MetadataGuide_ISRP_202508019.docx">Guidelines</a></li>
+                <li><a href="EXAMPLE_DataDictionary.xlsx">Example of Data Dictionary</a></li>
+                <li><a href="EXAMPLE_README_Astroglial_Cells.txt">Example of README File</a></li>
+              </ul>
+            </li>
+            <li>🔗 Link publication to DMP ID for follow-up</li>
+          </ul>
+        </section>
+
+        <p class="footer-note">This webpage is maintained by the DMAC team.</p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

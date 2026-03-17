@@ -55,12 +55,15 @@
     main { padding: 1.5rem 1rem 3rem; }
 
     .section {
-      border: 1px solid var(--ui-gray-300);
-      border-left: 6px solid var(--ui-black);
-      border-radius: 6px;
+      #border: 1px solid var(--ui-gray-300);
+      #border-left: 6px solid var(--ui-black);
+      #border-radius: 6px;
+	  border: none;
+  	  border-left: none;
+  	  border-radius: 6px;
       padding: 1rem 1rem 0.75rem;
       margin: 0 0 1rem;
-      background: var(--ui-gray-100);
+      #background: var(--ui-gray-100);
     }
 
     .section h2 {
@@ -71,9 +74,14 @@
       align-items: center;
       gap: 0.5rem;
     }
-
+	  
+	a {
+	  color: #3366CC; 
+	  text-decoration: underline; /* Optional */
+	}
+  
     .items { list-style: none; padding: 0 0 0 0.1rem; margin: 0; }
-    .items li { padding: 0.35rem 0; border-top: 1px dashed var(--ui-gray-300); }
+    .items li { padding: 0.35rem 0; border-top: #1px dashed var(--ui-gray-300); }
     .items li:first-child { border-top: 0; }
 
     code, .kbd {
@@ -106,41 +114,60 @@
     </div>
   </header>
 
+
+	
   <main class="container" aria-labelledby="priority-plan">
-    <section class="section" aria-label="Priority Plan">
+	 <h2>DH-ISRP: ISRP templates for <a href="https://github.com/ISRP-DMAC/DataHarmonizer" target="_blank">DataHarmonizer</a></h2>
+    <section class="section" aria-label="LATEST VERSION">
+      <h2 id="latest-version">LATEST VERSION</h2>
+      <ul class="items">
+        <li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank">DH-ISRP</a></li>
+      </ul>
+    </section>
+	  
+	  <section class="section" aria-label="PREVIOUS VERSION">
+      <h2 id="Previous-version">PREVIOUS VERSION</h2>
+      <ul class="items">
+        <li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank">0.2.0</a></li>
+		<li>🧰 <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank">0.1.0</a></li>
+      </ul>
+    </section>
+	  
+	  <h2>Lifecycle of <a href="https://iowasuperfund.uiowa.edu/" target="_blank">ISRP</a> Studies</h2>
+	  <section class="section" aria-label="Priority Plan">
       <h2 id="priority-plan">PRIORITY PLAN</h2>
       <ul class="items">
-        <li>🧰 <strong><a href="https://dmptool.org/" target="_blank">DMP Tool</a>:</strong> Sign up with UI SSO → Use <span class="kbd">ISRP Priority Plan</span></li>
-        <li>👥 <strong>Co-authors:</strong> David Purdy &amp; DMAC members</li>
-        <li>🆔 <strong>Register plan</strong> → Obtain DMP ID</li>
+        <li>🧰 <a href="https://dmptool.org/" target="_blank">DMP Tool</a>: Sign up with UI SSO → Use <span class="kbd">ISRP Priority Plan</span></li>
+        <li>👥 Co-authors: David Purdy &amp; DMAC members</li>
+        <li>🆔 Register plan → Obtain DMP ID</li>
       </ul>
     </section>
 
     <section class="section" aria-label="Data Management">
       <h2>DATA MANAGEMENT</h2>
       <ul class="items">
-        <li>🗂 <strong><a href="https://github.com/ISRP-DMAC/DataHarmonizer" target="_blank">DataHarmonizer</a>:</strong> Unzip DataHarmonizer-ISRP.zip → Click <code>index.html</code></li>
-        <li>👤 <strong>Contact:</strong> Marina Zhang, Andres Martinez</li>
+        <li>🗂 Download <a href="https://github.com/ISRP-DMAC/DataHarmonizer/blob/main/ISRP_DataHarmonizer.zip" target="_blank">DH-ISRP.zip</a>: Unzip DataHarmonizer-ISRP.zip → Click <code>index.html</code></li>
+        <li>👤 Contact: Marina Zhang, Andres Martinez</li>
       </ul>
     </section>
 
     <section class="section" aria-label="Data Analysis">
       <h2>DATA ANALYSIS</h2>
       <ul class="items">
-        <li>👤 <strong>Contact:</strong> Kai Wang</li>
+        <li>👤 Contact: Kai Wang</li>
       </ul>
     </section>
 
     <section class="section" aria-label="Publication and Sharing">
       <h2>PUBLICATION &amp; SHARING</h2>
       <ul class="items">
-        <li>📝 <strong>Publication</strong></li>
-        <li>📦 <strong>Deposit dataset</strong> (Marina Zhang) and <strong>code</strong> (Andres Martinez)</li>
-        <li>🔗 <strong>Link publication to DMP ID</strong> for follow-up</li>
+        <li>📝 Publication</li>
+        <li>📦 Deposit dataset (Marina Zhang) and code (Andres Martinez)</li>
+        <li>🔗 Link publication to DMP ID for follow-up</li>
       </ul>
     </section>
 
-    <p class="footer-note">Maintained by the DMAC team.</p>
+    <p class="footer-note">This webpage is maintained by the DMAC team.</p>
   </main>
 </body>
 </html>

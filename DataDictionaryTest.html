@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Dictionary - KEGG Enrichment Analysis</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.5;
+}
+h1 {
+    color: #003366;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+</style>
+</head>
+<body>
+
+<h1>KEGG Enrichment Analysis Data Dictionary</h1>
+
+<p>
+This data dictionary describes variables contained in the KEGG enrichment analysis dataset.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Display Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>Unit</th>
+<th>Allowed Values</th>
+<th>Example Value</th>
+<th>Required</th>
+<th>Primary Key</th>
+<th>Controlled Vocabulary</th>
+<th>FAIR Mapping</th>
+<th>Ontology ID</th>
+<th>Ontology Label</th>
+<th>Ontology Source URL</th>
+<th>Missing Value Definition</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>pathway_id</td>
+<td>KEGG Pathway Identifier</td>
+<td>Unique KEGG pathway identifier.</td>
+<td>character</td>
+<td>NA</td>
+<td>Valid KEGG pathway identifiers</td>
+<td>ko00260</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>KEGG Pathway Ontology</td>
+<td>PathwayIdentifier</td>
+<td>KEGG:PATHWAY</td>
+<td>KEGG Pathway</td>
+<td>https://www.kegg.jp/kegg/pathway.html</td>
+<td>Not allowed</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>KEGG Pathway Name</td>
+<td>Human-readable name of the KEGG pathway.</td>
+<td>character</td>
+<td>NA</td>
+<td>KEGG pathway names</td>
+<td>Glycine, serine and threonine metabolism</td>
+<td>Yes</td>
+<td>No</td>
+<td>KEGG Pathway Ontology</td>
+<td>PathwayLabel</td>
+<td>SIO:000185</td>
+<td>Label</td>
+<td>http://semanticscience.org/resource/SIO_000185</td>
+<td>Not allowed</td>
+</tr>
+
+<tr>
+<td>set_size</td>
+<td>Pathway Gene Count</td>
+<td>Number of genes or KEGG orthologs assigned to the pathway included in enrichment analysis.</td>
+<td>integer</td>
+<td>count</td>
+<td>Positive integers</td>
+<td>44</td>
+<td>Yes</td>
+<td>No</td>
+<td>KEGG Orthology</td>
+<td>GeneSetCardinality</td>
+<td>SIO:000794</td>
+<td>Count</td>
+<td>http://semanticscience.org/resource/SIO_000794</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>enrichment_score</td>
+<td>Enrichment Score</td>
+<td>Raw enrichment score (ES). Positive values indicate enrichment and negative values indicate depletion.</td>
+<td>numeric</td>
+<td>NA</td>
+<td>Real numbers</td>
+<td>0.52</td>
+<td>Yes</td>
+<td>No</td>
+<td>GSEA Metric</td>
+<td>GSEAEnrichmentScore</td>
+<td>EDAM:data_2526</td>
+<td>Statistical score</td>
+<td>https://edamontology.org/data_2526</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>NES</td>
+<td>Normalized Enrichment Score</td>
+<td>Enrichment score normalized for pathway size to enable comparisons across pathways.</td>
+<td>numeric</td>
+<td>NA</td>
+<td>Real numbers</td>
+<td>1.35</td>
+<td>Yes</td>
+<td>No</td>
+<td>GSEA Metric</td>
+<td>GSEANormalizedEnrichmentScore</td>
+<td>EDAM:data_2526</td>
+<td>Statistical score</td>
+<td>https://edamontology.org/data_2526</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>pvalue</td>
+<td>Nominal P-Value</td>
+<td>Nominal p-value associated with the enrichment score.</td>
+<td>numeric</td>
+<td>NA</td>
+<td>0-1</td>
+<td>0.023</td>
+<td>Yes</td>
+<td>No</td>
+<td>GSEA Metric</td>
+<td>NominalPValue</td>
+<td>STATO:0000184</td>
+<td>P-value</td>
+<td>http://purl.obolibrary.org/obo/STATO_0000184</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>p.adjust</td>
+<td>Adjusted P-Value</td>
+<td>Multiple-testing corrected p-value.</td>
+<td>numeric</td>
+<td>NA</td>
+<td>0-1</td>
+<td>0.042</td>
+<td>Yes</td>
+<td>No</td>
+<td>GSEA Metric</td>
+<td>MultipleTestingAdjustedPValue</td>
+<td>STATO:0000411</td>
+<td>Adjusted p-value</td>
+<td>http://purl.obolibrary.org/obo/STATO_0000411</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>qvalue</td>
+<td>False Discovery Rate</td>
+<td>Estimated false discovery rate associated with pathway enrichment.</td>
+<td>numeric</td>
+<td>NA</td>
+<td>0-1</td>
+<td>0.061</td>
+<td>Yes</td>
+<td>No</td>
+<td>GSEA Metric</td>
+<td>FalseDiscoveryRate</td>
+<td>STATO:0000304</td>
+<td>False discovery rate</td>
+<td>http://purl.obolibrary.org/obo/STATO_0000304</td>
+<td>NA</td>
+</tr>
+
+<tr>
+<td>rank</td>
+<td>Peak Enrichment Rank</td>
+<td>Position within the ranked feature list at which the enrichment score reaches 
